@@ -42,7 +42,8 @@ module VagrantPlugins
             facter = "#{facts.join(" ")} "
           end
           
-          command = "cd #{manifests_guest_path}; if($?) \{ #{facter} puppet apply #{options} \}"
+          command = "cd #{manifests_guest_path}; if($?) { #{facter} " +
+            "& \"${env:PROGRAMFILES(X86)}\\Puppet Labs\\Puppet\\bin\\puppet\" apply #{options} }"
           
           @machine.env.ui.info I18n.t("vagrant.provisioners.puppet.running_puppet",
                                       :manifest => @manifest_file)
