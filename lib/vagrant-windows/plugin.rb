@@ -12,7 +12,7 @@ end
 
 if Vagrant::VERSION >= "1.2.0"
   # Monkey Patch the virtualbox share_folders action to make valid share names on windows
-  require_relative "monkey_patches/plugins/providers/virtualbox/action/share_folders"
+  require_relative "monkey_patches/plugins/providers/virtualbox/synced_folder"
 end
 
 # Monkey patch the vbox42 driver to support read mac addresses
